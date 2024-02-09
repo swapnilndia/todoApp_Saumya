@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import TodoList from './components/TodoList'
 import AddTodo from './components/AddTodo'
 import EditTodo from './components/EditTodo'
-
+import TodoContext from './context/TodoContext'
 
 function App() {
+  const { user } = useContext(TodoContext)
   const [list, setList] = useState([])
-  const [updateTodo, setUpdateTodo] = useState(null)
+  const [updateTodo, setUpdateTodo] = useState('')
 
 
   const addNewTodoInList = (newTodo) => {
@@ -33,7 +34,7 @@ function App() {
     const selectedTodoIdx = listCopy.findIndex((row) => row.id === updatedTodo.id)
     listCopy[selectedTodoIdx] = updatedTodo
     setList(listCopy)
-    setUpdateTodo(null)
+    setUpdateTodo('')
   }
 
   return (

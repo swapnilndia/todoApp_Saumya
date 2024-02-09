@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import TodoContext from '../context/TodoContext'
 
-const TodoList = ({ propList, propSetList, markAsComplete ,getTodoForUpdating}) => {
-
+const TodoList = ({ propList, propSetList, markAsComplete, getTodoForUpdating }) => {
+    const { user } = useContext(TodoContext)
     const deleteHandler = (id) => {
         const newList = [...propList]
         const filteredList = newList.filter(todo => todo.id !== id)

@@ -24,7 +24,7 @@ const EditTodo = ({ updateTodo, setUpdateTodo,updateTodoList }) => {
     const cancelButtonHandler = () => {
         setEditTodoName('')
         setEditTodoPrice('')
-        setUpdateTodo(null)
+        setUpdateTodo('')
     }
 
     return (
